@@ -33,15 +33,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateUser(Integer userId, UpdateUserRequest req) throws UserException {
         User user=findUserById(userId);
-        if(user.getFull_name()!=null){
-            user.setFull_name(req.getFull_name());
-        }
+//        if(user.getFull_name()!=null){
+//            user.setFull_name(req.getFull_name());
+//        }
+        user.setFull_name(req.getFull_name());
 //        if(user.getProfile_picture()!=null){
 //            user.setProfile_picture(req.getProfile_picture());
 //        }
         user.setProfile_picture(req.getProfile_picture());
         User user1 = userRepository.save(user);
-        System.out.println(user1.getProfile_picture());
+        //System.out.println(user1.getProfile_picture());
         return user1;
     }
 
